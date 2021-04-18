@@ -26,8 +26,30 @@
             <div class="answer">
                 -
                 <!-- Notre code ici : -->
-                <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors
-                on affiche le nom et le prénom de la personne qui souhaite s'inscrire. -->
+                <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors on affiche le nom et le prénom de la personne qui souhaite s'inscrire. -->
+                <!-- if (!empty($_GET)) //si $_GET n'est pas vide alors...
+                {
+                    echo $_GET['lastname'].' '.$_GET['firstname'];
+                } 
+                
+                OU-->
+
+                <?php 
+                    //je récupère les données remplies dans le formulaire
+                        $lastname = $_GET['lastname'];
+                        $firstname = $_GET['firstname'];
+                        $age = $_GET['age'];
+                    //je vérifie que le formulaire n'est pas vide et que tous les champs sont bien remplis
+                    if (count($_GET) > 0 && !empty($lastname) && !empty($firstname) && !empty($age)) : 
+                ?>
+                <!-- alors j'affiche le nom et prénom -->  
+                <?= $_GET['lastname'] ?> <?= $_GET['firstname'] ?> 
+
+                <?php 
+                    endif; 
+                ?>
+                <!-- Sinon rien n'est affiché -->
+
             </div>
             <h2>Autorisation </h2>
             <div class="answer">
@@ -40,6 +62,31 @@
                         - S'il l'âge est situé entre 16 et 18 ans, on affiche "Inscription possible en conduite accompagnée"
                         - Sinon, afficher "Inscription possible"
                 -->
+
+                <?php
+                    //je vérifie que le formulaire n'est pas vide et que tous les champs sont bien remplis
+                    if (count($_GET) > 0 && !empty($lastname) && !empty($firstname) && !empty($age))
+                    {
+                        //si j'ai moins de 16 ans
+                        if ($age < 16)
+                        {
+                            echo 'Vous êtes trop jeune pour vous inscrire';
+                        }
+                        //sinon si j'ai entre 16 et 18ans inclus
+                        elseif ($age >= 16 && $age <= 18)
+                        {
+                            echo 'Inscription possible en conduite accompagnée';
+                        }
+                        //sinon pour tous les âges supérieurs à 18ans
+                        else
+                        {
+                            echo 'Inscription possible';
+                        }
+                    }
+                ?>
+
+
+
             </div>
         </aside>
     </body>
