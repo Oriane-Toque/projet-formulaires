@@ -24,7 +24,7 @@
             <h1>Résumé de l'inscription</h1>
             <h2>Inscription de </h2>
             <div class="answer">
-                -
+                
                 <!-- Notre code ici : -->
                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors on affiche le nom et le prénom de la personne qui souhaite s'inscrire. -->
                 <!-- if (!empty($_GET)) //si $_GET n'est pas vide alors...
@@ -53,7 +53,7 @@
             </div>
             <h2>Autorisation </h2>
             <div class="answer">
-                -
+                
                 <!-- Notre code ici : -->
                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors : 
                     - On récupère l'âge de la personne
@@ -70,7 +70,9 @@
                         //si j'ai moins de 16 ans
                         if ($age < 16)
                         {
-                            echo 'Vous êtes trop jeune pour vous inscrire';
+                            $attente = 16 - $age;
+                            echo 'Vous êtes trop jeune pour vous inscrire<br>';
+                            echo 'Vous pourrez vous inscrire dans '.$attente.' ans';
                         }
                         //sinon si j'ai entre 16 et 18ans inclus
                         elseif ($age >= 16 && $age <= 18)
