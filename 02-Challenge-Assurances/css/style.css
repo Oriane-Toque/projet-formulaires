@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+:root {
+  --main-color: #006a53;
+}
+
+*,
+*::before,
+*::after {
+ box-sizing: border-box;
+ font-family: 'Roboto';
+ font-weight: 400;
+}
+
+body {
+  margin: 0;
+  padding: 0.5rem;
+  background: url(../images/voitures.jpg) top 0.5rem right 0.8rem no-repeat;
+  background-size: 50%;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+label,
+input {
+  display: block;
+  min-width: 20%;
+}
+
+input {
+  margin-bottom: 0.8rem;
+}
+
+h1,
+h2,
+label,
+strong {
+  font-weight: 900;
+}
+
+h1,
+h2 {
+  color: var(--main-color);
+}
+
+button {
+  padding: 0.8rem;
+  background: var(--main-color);
+  color: #fff;
+  border: none;
+}

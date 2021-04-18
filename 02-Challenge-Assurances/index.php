@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>O'ssurance</title>
+		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/paliers_style.php">
 	</head>
 	<body>
 		<?php
@@ -25,7 +27,7 @@
 				<!-- Age du client -->
 				<div>
 					<label for="age">Âge</label>
-					<input type="number" id="age" name="age" placeholder="Votre âge">
+					<input type="number" id="age" name="age">
 				</div>
 				<!-- Années de permis -->
 				<div>
@@ -43,7 +45,7 @@
 					<input type="number" name="anciennete_assureur" id="anciennete_assureur">
 				</div>
 			</fieldset>
-			<button type="submit" id="submit">Envoyer</button>
+			<button type="submit" id="submit">Calculer le tarif</button>
 		</form>
 
 		<!-- <p>Votre client à droit au tarif <strong>xxx</strong></p> -->
@@ -117,42 +119,20 @@
 
 			<!-- ATTRIBUTION TARIFS EN FONCTION DE LA VALEUR $palier -->
 			<?php if ($palier <= 0) :?>
-				<p>Désolé votre client ne remplit pas les conditions <strong><?= $palier0 ?></strong></p>
+				<p>Désolé votre client ne remplit pas les conditions : <strong id='palier0'><?= $palier0 ?></strong></p>
 
 			<?php elseif ($palier === 1) : ?>
-				<p>Votre client à droit au tarif <strong><?= $palier1 ?></strong></p>
+				<p>Votre client à droit au tarif <strong id='palier1'><?= $palier1 ?></strong></p>
 			
 			<?php elseif ($palier === 2) : ?>
-				<p>Votre client à droit au tarif <strong><?= $palier2 ?></strong></p>
+				<p>Votre client à droit au tarif <strong id='palier2'><?= $palier2 ?></strong></p>
 			
 			<?php elseif ($palier === 3) : ?>
-				<p>Votre client à droit au tarif <strong><?= $palier3 ?></strong></p>
+				<p>Votre client à droit au tarif <strong id='palier3'><?= $palier3 ?></strong></p>
 			
 			<?php elseif ($palier >= 4) : ?>
-				<p>Votre client à droit au tarif <strong><?= $palier4 ?></strong></p>
+				<p>Votre client à droit au tarif <strong id='palier4'><?= $palier4 ?></strong></p>
 			<?php endif; ?>
-
-			<!-- AFFICHAGE AVEC SWITCH -->
-			<?php switch ($palier) : 
-				case ($palier <= 0) :	?>
-				<p>Désolé votre client ne remplit pas les conditions <strong><?= $palier0 ?></strong></p>
-			<?php
-				break;
-				case 1 : ?>
-				<p>Votre client à droit au tarif <strong><?= $palier1 ?></strong></p>
-			<?php
-				break;
-				case 2 : ?>
-				<p>Votre client à droit au tarif <strong><?= $palier2 ?></strong></p>
-			<?php
-				break;
-				case 3 : ?>
-				<p>Votre client à droit au tarif <strong><?= $palier3 ?></strong></p>
-			<?php
-				break;
-				case ($palier >= 4) : ?>
-				<p>Votre client à droit au tarif <strong><?= $palier4 ?></strong></p>
-			<?php endswitch; ?>
 		<?php endif; ?>
 
 	</body>
