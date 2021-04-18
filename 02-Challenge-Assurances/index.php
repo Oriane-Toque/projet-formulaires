@@ -131,6 +131,28 @@
 			<?php elseif ($palier >= 4) : ?>
 				<p>Votre client à droit au tarif <strong><?= $palier4 ?></strong></p>
 			<?php endif; ?>
+
+			<!-- AFFICHAGE AVEC SWITCH -->
+			<?php switch ($palier) : 
+				case ($palier <= 0) :	?>
+				<p>Désolé votre client ne remplit pas les conditions <strong><?= $palier0 ?></strong></p>
+			<?php
+				break;
+				case 1 : ?>
+				<p>Votre client à droit au tarif <strong><?= $palier1 ?></strong></p>
+			<?php
+				break;
+				case 2 : ?>
+				<p>Votre client à droit au tarif <strong><?= $palier2 ?></strong></p>
+			<?php
+				break;
+				case 3 : ?>
+				<p>Votre client à droit au tarif <strong><?= $palier3 ?></strong></p>
+			<?php
+				break;
+				case ($palier >= 4) : ?>
+				<p>Votre client à droit au tarif <strong><?= $palier4 ?></strong></p>
+			<?php endswitch; ?>
 		<?php endif; ?>
 
 	</body>
