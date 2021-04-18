@@ -47,8 +47,15 @@
 		</form>
 
 		<!-- <p>Votre client à droit au tarif <strong>xxx</strong></p> -->
-		
-		<?php if (count($_POST) > 0) :?>
+
+		<?php
+			$age = $_POST['age'];
+			$anciennete_permis = $_POST['anciennete_permis'];
+			$nb_accidents = $_POST['nb_accidents'];
+			$anciennete_assureur = $_POST['anciennete_assureur'];
+		?>
+		<!-- Conditions supplémentaires si tu as moins de 18ans que l'ancienneté est un chiffre négatif ca fonctionne pas -->
+		<?php if (count($_POST) > 0 && $age >= 18 && $anciennete_permis >= 0 && $anciennete_assureur >= 0) :?>
 			<?php
 
 				/* RECAP :
@@ -81,10 +88,6 @@
 				*/
 
 				//ASSIGNATION DES VALEURS CONTENUES DANS LE FORMULAIRE
-				$age = $_POST['age'];
-				$anciennete_permis = $_POST['anciennete_permis'];
-				$nb_accidents = $_POST['nb_accidents'];
-				$anciennete_assureur = $_POST['anciennete_assureur'];
 
 				//Par défaut tout le monde est au palier 1 donc $palier = 1;
 				$palier = 1;
