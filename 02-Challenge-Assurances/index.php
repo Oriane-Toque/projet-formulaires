@@ -60,7 +60,7 @@
 						$nb_accidents = $_POST['nb_accidents'];
 						$anciennete_assureur = $_POST['anciennete_assureur'];
 
-						if ($age >= 18 && $anciennete_permis >= 0 && $anciennete_assureur >= 0) :
+						if ($age >= 18 && $anciennete_permis >= 0 && $anciennete_assureur >= 0 && $nb_accidents >= 0) :
 		?>
 				<?php
 
@@ -122,7 +122,7 @@
 				?>
 
 				<!-- ATTRIBUTION TARIFS EN FONCTION DE LA VALEUR $palier -->
-				<?php if ($palier <= 0) :?>
+				<?php if ($palier < 1) :?>
 					<p>Désolé votre client ne remplit pas les conditions : <strong id='palier0'><?= $palier0 ?></strong></p>
 
 				<?php elseif ($palier === 1) : ?>
@@ -138,7 +138,7 @@
 					<p>Votre client à droit au tarif <strong id='palier4'><?= $palier4 ?></strong></p>
 				<?php endif; ?>
 			<?php 
-			else : echo "Vous avez mal renseigné les champs";
+			else : echo "<p>Vous avez mal renseigné les champs ou vous êtes mineurs alors vous n'êtes pas assurables !</p>";
 			endif; ?>
 		<?php endif; ?>
 
