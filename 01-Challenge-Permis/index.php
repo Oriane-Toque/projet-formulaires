@@ -22,8 +22,7 @@
         </main>
         <aside>
             <h1>Résumé de l'inscription</h1>
-            <h2>Inscription de </h2>
-            <div class="answer">
+            
                 
                 <!-- Notre code ici : -->
                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors on affiche le nom et le prénom de la personne qui souhaite s'inscrire. -->
@@ -45,6 +44,9 @@
 
                         if (!empty($lastname) && !empty($firstname) && !empty($age)) :
                 ?>
+
+                <h2>Inscription de </h2>
+                <div class="answer">
                         <!-- alors j'affiche le nom et prénom -->  
                         <?= $_GET['lastname']; ?> <?= $_GET['firstname']; ?> 
 
