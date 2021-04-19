@@ -7,8 +7,6 @@
 		"bleu"
 	];
 
-	var_dump($palier);
-
 	if ($palier > 0):
 		echo "<p>Votre client à droit au tarif <strong id='palier$palier'>".$valeurpalier[$palier]. "</strong></p>";
 
