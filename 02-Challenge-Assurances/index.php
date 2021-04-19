@@ -137,7 +137,9 @@
 				<?php elseif ($palier >= 4) : ?>
 					<p>Votre client à droit au tarif <strong id='palier4'><?= $palier4 ?></strong></p>
 				<?php endif; ?>
-			<?php endif; ?>
+			<?php 
+			else : echo "Vous avez mal renseigné les champs";
+			endif; ?>
 		<?php endif; ?>
 
 	</body>
