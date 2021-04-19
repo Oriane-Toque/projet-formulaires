@@ -35,19 +35,20 @@
                 OU-->
 
                 <?php 
-                    //je récupère les données remplies dans le formulaire
+                    
+                    //je vérifie que le formulaire n'est pas vide et que tous les champs sont bien remplis
+                    if (count($_GET) > 0) :
+                       //je récupère les données remplies dans le formulaire
                         $lastname = $_GET['lastname'];
                         $firstname = $_GET['firstname'];
-                        $age = $_GET['age'];
-                    //je vérifie que le formulaire n'est pas vide et que tous les champs sont bien remplis
-                    if (count($_GET) > 0 && !empty($lastname) && !empty($firstname) && !empty($age)) : 
-                ?>
-                <!-- alors j'affiche le nom et prénom -->  
-                <?= $_GET['lastname'] ?> <?= $_GET['firstname'] ?> 
+                        $age = $_GET['age']; 
 
-                <?php 
-                    endif; 
+                        if (!empty($lastname) && !empty($firstname) && !empty($age)) :
                 ?>
+                        <!-- alors j'affiche le nom et prénom -->  
+                        <?= $_GET['lastname']; ?> <?= $_GET['firstname']; ?> 
+
+                
                 <!-- Sinon rien n'est affiché -->
 
             </div>
@@ -65,7 +66,7 @@
 
                 <?php
                     //je vérifie que le formulaire n'est pas vide et que tous les champs sont bien remplis
-                    if (count($_GET) > 0 && !empty($lastname) && !empty($firstname) && !empty($age))
+                    if (!empty($age) && $age > 0)
                     {
                         //si j'ai moins de 16 ans
                         if ($age < 16)
@@ -75,7 +76,7 @@
                             echo 'Vous pourrez vous inscrire dans '.$attente.' ans';
                         }
                         //sinon si j'ai entre 16 et 18ans inclus
-                        elseif ($age >= 16 && $age <= 18)
+                        elseif ($age < 18)
                         {
                             echo 'Inscription possible en conduite accompagnée';
                         }
@@ -85,8 +86,15 @@
                             echo 'Inscription possible';
                         }
                     }
+                    else
+                    {
+                        echo "N'oubliez pas d'indiquer votre âge";
+                    }
                 ?>
-
+                <?php
+                        endif;
+                    endif; 
+                ?>
 
 
             </div>
